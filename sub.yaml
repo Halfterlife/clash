@@ -1,0 +1,51 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 1.1.1.1
+    - 8.8.8.8
+
+proxies:
+  - name: Reality节点
+    type: vless
+    server: depian1.top
+    port: 23573
+    uuid: ec41252c-c63e-4620-bc6c-70a8f736ddb9
+    network: tcp
+    tls: true
+    udp: true
+    servername: www.microsoft.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: HPNeW6Ft4Bhum3IHakwV7LrdjH3oVbJc5JuQKl4hmgY
+      short-id: ef
+
+
+proxy-groups:
+  - name: 自动选择
+    type: select
+    proxies:
+      - Reality节点
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,oray.com,DIRECT
+  - DOMAIN-SUFFIX,sunlogin.oray.com,DIRECT
+  - DOMAIN-SUFFIX,oray.net,DIRECT
+  - DOMAIN-SUFFIX,ctrl.oray.com,DIRECT
+  - PROCESS-NAME,ToDesk,DIRECT
+  - PROCESS-NAME,ToDesk_Service,DIRECT
+  - IP-CIDR,192.3.208.111/32,DIRECT
+  - DOMAIN,depian1.top,DIRECT
+  - PROCESS-NAME,verge-mihomo.exe,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,自动选择
