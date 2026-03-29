@@ -18,7 +18,7 @@ proxies:
   - name: Reality节点
     type: vless
     server: depian1.top
-    port: 2537
+    port: 25372
     uuid: ec41252c-c63e-4620-bc6c-70a8f736ddb9
     network: tcp
     tls: true
