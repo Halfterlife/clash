@@ -23,7 +23,7 @@ proxies:
     network: tcp
     tls: true
     udp: true
-    servername: www.icloud.com
+    servername: www.cloudflare.com
     client-fingerprint: chrome
     reality-opts:
       public-key: HPNeW6Ft4Bhum3IHakwV7LrdjH3oVbJc5JuQKl4hmgY
