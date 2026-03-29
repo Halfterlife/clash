@@ -8,25 +8,11 @@ dns:
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
-  fallback:
     - 1.1.1.1
     - 8.8.8.8
-    - tls://dns.google
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-  fake-ip-filter:
-    - '*.lan'
-    - '*.localdomain'
-    - localhost.ptlogin2.qq.com
-    - stun.*.*
-    - stun.*.*.*
 
 proxies:
   - name: Reality节点
@@ -43,6 +29,7 @@ proxies:
       public-key: HPNeW6Ft4Bhum3IHakwV7LrdjH3oVbJc5JuQKl4hmgY
       short-id: ef
 
+
 proxy-groups:
   - name: 自动选择
     type: select
@@ -57,14 +44,8 @@ rules:
   - DOMAIN-SUFFIX,ctrl.oray.com,DIRECT
   - PROCESS-NAME,ToDesk,DIRECT
   - PROCESS-NAME,ToDesk_Service,DIRECT
-  - PROCESS-NAME,verge-mihomo.exe,DIRECT
-
-  - DOMAIN,depian1.top,DIRECT
   - IP-CIDR,192.3.208.111/32,DIRECT
-  
-
-  - GEOSITE,CN,DIRECT
-  
+  - DOMAIN,depian1.top,DIRECT
+  - PROCESS-NAME,verge-mihomo.exe,DIRECT
   - GEOIP,CN,DIRECT
-  
   - MATCH,自动选择
